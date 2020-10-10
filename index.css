@@ -10,3 +10,8 @@ span{
     font-family: 'Commissioner', sans-serif;
 }
 
+@media (max-width: 991px) {
+    .imagen {
+      display: none;
+    }
+  }
