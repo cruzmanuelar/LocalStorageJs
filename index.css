@@ -1,3 +1,12 @@
 .container-fluid{
     padding:0 !important;
 }
+
+.enlace{
+    font-family: 'Commissioner', sans-serif;
+    font-size: 20px;
+}
+span{
+    font-family: 'Commissioner', sans-serif;
+}
+
