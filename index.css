@@ -9,9 +9,12 @@
 span{
     font-family: 'Commissioner', sans-serif;
 }
+.formulario{
+    
+}
 
 @media (max-width: 991px) {
     .imagen {
       display: none;
     }
-  }
+}
