@@ -2,7 +2,7 @@ document.getElementById('formTarea').addEventListener('submit', guardarTarea);
 
 document.getElementById('botonSubir').addEventListener('click',scrollSubir);
 
-document.getElementById('botonEliminar').addEventListener('click',scrollEliminar);
+document.getElementById('botonFEliminar').addEventListener('click',scrollEliminar);
 
 function guardarTarea(e) {
 
@@ -41,7 +41,6 @@ function eliminarTarea(titulo) {
     mostrarTareas();
 }
 
-
 function mostrarTareas() {
     let tareas = JSON.parse(localStorage.getItem('tareas'));
     let vistaTareas = document.getElementById('tareas');
@@ -56,8 +55,8 @@ function mostrarTareas() {
             <div class="col-6">
                 <p class="text-dark"><b>${titulo}</b> : ${descripcion}
             </div>
-            <div class="col-6 text-right">
-                <a href="#" onclick="eliminarTarea('${titulo}')" class="btn btn-info"><i class="fas fa-check"></i> Hecho</a>
+            <div class="col-6 cajaE text-right">
+                <a href="#" onclick="eliminarTarea('${titulo}')" id="tareaId" class="btn btn-info"><i class="fas fa-times"></i> Eliminar</a>
             </div>
         </div>`;
     }
@@ -65,11 +64,10 @@ function mostrarTareas() {
 
 function limpiarTareas(e){
 
-    let tareas = JSON.parse(localStorage.getItem('tareas'));
-
-    if(tareas===null){
+    if(!(localStorage.getItem('tareas'))){
         alert("Registro vacío");
     }else{
+        let tareas = JSON.parse(localStorage.getItem('tareas'));
         let eliminar = prompt("¿Eliminar todo el registro? S/N");
         if(eliminar==="S" || eliminar ==="s"){
             localStorage.clear();
@@ -77,7 +75,6 @@ function limpiarTareas(e){
     }
     document.getElementById('formTarea').reset();
     mostrarTareas();
-
 }
 
 function scrollSubir(){
@@ -89,29 +86,21 @@ function scrollSubir(){
     window.scrollTo(0, desplazScroll - (desplazScroll/10));
     botonSubir.style.transform = "scale(0)";
   }
-
 }
 
-botonEliminar = document.getElementById('botonEliminar');
+botonEliminar = document.getElementById('botonFEliminar');
 botonSubir = document.getElementById('botonSubir');
+
 window.onscroll = function(){
 
   var scroll = document.documentElement.scrollTop;
 
-  if(scroll>200){
+  if(scroll>170){
     botonSubir.style.transform = "scale(1)";
   }
   else{
     botonSubir.style.transform = "scale(0)";
-    botonEliminar.style.transform = "scale(0)";
   }
-  
-  if(scroll>420){
-    botonEliminar.style.transform = "scale(1)";
-  }else{
-    botonEliminar.style.transform = "scale(0)";
-  }
-
 }
 
 function scrollEliminar(){
@@ -127,7 +116,6 @@ function scrollEliminar(){
     }
     document.getElementById('formTarea').reset();
     mostrarTareas();
-  
 }
 
 mostrarTareas();

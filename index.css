@@ -2,10 +2,23 @@
     padding:0 !important;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 .enlace{
+    transition: 0.4s;
     font-family: 'Commissioner', sans-serif;
     font-size: 20px;
 }
+.enlace:hover{
+    color: yellow !important;
+}
+
+#tareaId:hover{
+    transform: scale(1.05);
+}
+
 span, .letra{
     font-family: 'Commissioner', sans-serif;
 }
@@ -14,69 +27,41 @@ span, .letra{
     font-family: 'Raleway', sans-serif;
 }
 
+#botonFEliminar{
+    background: red;
+    left: 20px;
+    transform: scale(1);
+    display: none;
+}
+
 #botonSubir{
-    width: 55px;
-    height: 55px;
     background: #46a2fe;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border-radius: 50%;
-    font-size: 20px;
-    position: fixed;
-    bottom: 20px;
     right: 20px;
-    cursor: pointer;
-    border:4px solid transparent;
-    transition: all 300ms ease;
-    transform: scale(0);
-}
-#botonEliminar{
-    width: 55px;
-    height: 55px;
-    background: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border-radius: 50%;
-    font-size: 20px;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    cursor: pointer;
-    border:4px solid transparent;
-    transition: all 300ms ease;
     transform: scale(0);
 }
 
-#botonFEliminar{
+#botonFEliminar, #botonSubir{
     width: 55px;
     height: 55px;
-    background: red;
-    display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     border-radius: 50%;
     font-size: 20px;
     position: fixed;
     bottom: 20px;
-    left: 200px;
-    cursor: pointer;
+    color: white;
     border:4px solid transparent;
     transition: all 300ms ease;
-    transform: scale(1);
-    position: fixed;
+    cursor: pointer;
 }
 
 #botonSubir:hover{
     transform: scale(1.1);
     border-color: rgba(0, 0, 0, 0.1);
 }
-#botonEliminar:hover{
-    transform: scale(1.1);
+#botonFEliminar:hover{
+    transform: scale(1.05);
     border-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -84,7 +69,13 @@ span, .letra{
     .imagen {
       display: none;
     }
-    #botonEliminar{
-        display: none;
+    #botonFEliminar{
+        display: flex;
+    }
+}
+
+@media (min-width:991){
+    #botonFEliminar{
+        display:none;
     }
 }
