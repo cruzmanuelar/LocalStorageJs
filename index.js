@@ -92,22 +92,42 @@ function scrollSubir(){
 
 }
 
+botonEliminar = document.getElementById('botonEliminar');
 botonSubir = document.getElementById('botonSubir');
 window.onscroll = function(){
 
   var scroll = document.documentElement.scrollTop;
 
-  if(scroll>130){
+  if(scroll>200){
     botonSubir.style.transform = "scale(1)";
-  }else{
+  }
+  else{
     botonSubir.style.transform = "scale(0)";
+    botonEliminar.style.transform = "scale(0)";
+  }
+  
+  if(scroll>420){
+    botonEliminar.style.transform = "scale(1)";
+  }else{
+    botonEliminar.style.transform = "scale(0)";
   }
 
 }
 
 function scrollEliminar(){
-  console.log("Prueba");
-}
+  let tareas = JSON.parse(localStorage.getItem('tareas'));
 
+    if(tareas===null){
+        alert("Registro vacío");
+    }else{
+        let eliminar = prompt("¿Eliminar todo el registro? S/N");
+        if(eliminar==="S" || eliminar ==="s"){
+            localStorage.clear();
+        }
+    }
+    document.getElementById('formTarea').reset();
+    mostrarTareas();
+  
+}
 
 mostrarTareas();
