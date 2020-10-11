@@ -1,6 +1,11 @@
 document.getElementById('formTarea').addEventListener('submit', guardarTarea);
 
+document.getElementById('botonSubir').addEventListener('click',scrollSubir);
+
+document.getElementById('botonEliminar').addEventListener('click',scrollEliminar);
+
 function guardarTarea(e) {
+
     let titulo = document.getElementById('titulo').value;
     let descripcion = document.getElementById('descripcion').value;
   
@@ -43,15 +48,16 @@ function mostrarTareas() {
     vistaTareas.innerHTML = '';
     for(let i = 0; i < tareas.length; i++) {
       let titulo = tareas[i].titulo;
+
       let descripcion = tareas[i].descripcion;
   
       vistaTareas.innerHTML += `
         <div class="row my-2 px-4">
             <div class="col-6">
-                <p class="text-dark">${titulo} : ${descripcion}
+                <p class="text-dark"><b>${titulo}</b> : ${descripcion}
             </div>
             <div class="col-6 text-right">
-                <a href="#" onclick="eliminarTarea('${titulo}')" class="btn btn-info">Hecho</a>
+                <a href="#" onclick="eliminarTarea('${titulo}')" class="btn btn-info"><i class="fas fa-check"></i> Hecho</a>
             </div>
         </div>`;
     }
@@ -60,6 +66,7 @@ function mostrarTareas() {
 function limpiarTareas(e){
 
     let tareas = JSON.parse(localStorage.getItem('tareas'));
+
     if(tareas===null){
         alert("Registro vacío");
     }else{
@@ -72,5 +79,35 @@ function limpiarTareas(e){
     mostrarTareas();
 
 }
+
+function scrollSubir(){
+
+  var desplazScroll = document.documentElement.scrollTop;
+
+  if(desplazScroll>0){
+    window.requestAnimationFrame(scrollSubir);
+    window.scrollTo(0, desplazScroll - (desplazScroll/10));
+    botonSubir.style.transform = "scale(0)";
+  }
+
+}
+
+botonSubir = document.getElementById('botonSubir');
+window.onscroll = function(){
+
+  var scroll = document.documentElement.scrollTop;
+
+  if(scroll>130){
+    botonSubir.style.transform = "scale(1)";
+  }else{
+    botonSubir.style.transform = "scale(0)";
+  }
+
+}
+
+function scrollEliminar(){
+  console.log("Prueba");
+}
+
 
 mostrarTareas();

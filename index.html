@@ -6,6 +6,8 @@
     <title>LocalStorage</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c7fefd16f0.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 
 </head>
@@ -20,13 +22,13 @@
             <div class="row">
                 <div class="col-6 col-lg-4 col-sm-6 mt-3">
                     <form id="formTarea">
-                        <div class="form-group">
+                        <div class="form-group letra">
                             <h4 class="text-center">Agregar Tarea</h4>
                             <label>Titulo</label>
                             <input type="text" class="form-control" id="titulo"
                             required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group letra">
                             <label>Descripción</label>
                             <input type="text" class="form-control" id="descripcion"
                             required>
@@ -35,8 +37,8 @@
                       </form>
                 </div>
                 <div class="col-6 col-sm-6 col-lg-5 mt-3 container-fluid">
-                    <h4 class="mb-4 text-center">Tareas</h4>
-                    <div id="tareas">
+                    <h4 class="mb-4 text-center letra">Tareas</h4>
+                    <div id="tareas" class="tarea">
                     </div>
                 </div>
                 <div class="col-3 mt-3 col-lg-3 imagen">
@@ -45,6 +47,13 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="botonSubir">
+        <i class="fas fa-angle-double-up"></i>
+    </div>
+    <div id="botonEliminar">
+        <i class="fas fa-trash"></i>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
